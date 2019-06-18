@@ -1,0 +1,27 @@
+{
+    "name": "dpazuic/aits_student_enrollment",
+    "description": "Package used to query AITS webservices for a UIN's enrollment data",
+    "type": "library",
+    "require": {
+        "vlucas/phpdotenv": "^3.3",
+        "nesbot/carbon": "^2.16",
+        "guzzlehttp/guzzle": "^6.3",
+        "monolog/monolog": "^1.24",
+        "php": ">7.1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "dpazuic",
+            "email": "dpaz@uic.edu"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "app"
+        ],
+        "files": [
+            "app/bootstrap.php"
+        ]
+    }
+}
