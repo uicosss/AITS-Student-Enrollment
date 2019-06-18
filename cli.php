@@ -21,7 +21,7 @@ try {
     }
 
     print_r(
-        \App\Controller\AITS_Student_Enrollment::getStudentEnrollment(
+        \AitsStudentEnrollment\Controller\AITS_Student_Enrollment::getStudentEnrollment(
             $argv[1],
             $argv[2]
         )

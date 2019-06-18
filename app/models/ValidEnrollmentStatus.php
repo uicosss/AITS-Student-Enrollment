@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Model;
+namespace AitsStudentEnrollment\Model;
 
 
 class ValidEnrollmentStatus

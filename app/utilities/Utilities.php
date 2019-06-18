@@ -6,7 +6,7 @@
  * Time: 12:34 AM
  */
 
-namespace App\Utilities;
+namespace AitsStudentEnrollment\Utilities;
 
 
 use Carbon\Carbon;
