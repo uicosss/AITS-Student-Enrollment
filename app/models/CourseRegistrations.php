@@ -4,13 +4,15 @@
 namespace AitsStudentEnrollment\Model;
 
 
-class CourseRegistrations
+class CourseRegistrations implements \Countable
 {
 
     /**
      * @var CourseRegistration[]
      */
     protected $courseRegistrations;
+
+    protected $_myCount = 0;
 
     /**
      * @return CourseRegistration[]
@@ -49,6 +51,15 @@ class CourseRegistrations
 
         }
 
+    }
+
+    public function count()
+    {
+        $this->_myCount = !empty($this->courseRegistrations)
+            ? count($this->courseRegistrations)
+            : 0;
+
+        return $this->_myCount;
     }
 
 }
