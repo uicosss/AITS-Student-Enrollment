@@ -131,9 +131,5 @@ class StudentEnrollment
         $courseRegistrations->setFromArray($array['queryRequestResult'][0]['courseRegistration']);
         $this->setCourseRegistration($courseRegistrations);
 
-//        print_r($array);
-        print_r($this);
-        die();
-
     }
 }
