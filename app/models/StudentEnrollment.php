@@ -96,7 +96,7 @@ class StudentEnrollment
         $this->courseRegistrations = $courseRegistrations;
     }
 
-    public function setFromJson(String $json)
+    public function setFromJson($json)
     {
 
         $array = json_decode($json,TRUE);
