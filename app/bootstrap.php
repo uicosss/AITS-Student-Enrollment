@@ -2,18 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: Daniel-Paz-Horta
- * Date: 3/5/19
+ * Date: 6/18/19
  * Time: 11:19 AM
  */
 
-// Load the contents of ../.env
-try {
+// Load from within this Package
+use Dotenv\Dotenv;
 
-    $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
-    $dotenv->load();
+$dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
+$dotenv->load();
 
-} catch (\Exception $e) {
+if(is_readable(__DIR__ . '/../../../../.env')) {
 
-    return $e->getMessage();
+    // Try to load from the root of of a project that is using this package
+    $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../../../../');
+    $dotenv->overload();
 
 }
+
+$dotenv->required(['AITS_STUDENT_ENROLLMENT_APP_DATA_LOG_RELATIVE_PATH', 'AITS_STUDENT_ENROLLMENT_DATA_LOG_FILE_PREFIX', 'AITS_STUDENT_ENROLLMENT_AITS_SENDER_APP_ID', 'AITS_STUDENT_ENROLLMENT_AITS_SERVICE_HOST'])->notEmpty();

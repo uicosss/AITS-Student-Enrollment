@@ -32,10 +32,10 @@ class AITS_Student_Enrollment
         try {
 
             $client = new Client([
-                'base_uri' => $_ENV['AITS_SERVICE_HOST']
+                'base_uri' => $_ENV['AITS_STUDENT_ENROLLMENT_APP_DATA_LOG_FILE_PREFIX']
             ]);
 
-            $response = $client->request('GET', '/studentWS/query/edu.uillinois.Student.StudentEnrollment_1_0/' . $_ENV['AITS_SENDER_APP_ID'] . '/' . $uin . '/' . $term, [
+            $response = $client->request('GET', '/studentWS/query/edu.uillinois.Student.StudentEnrollment_1_0/' . $_ENV['AITS_STUDENT_ENROLLMENT_APP_DATA_LOG_FILE_PREFIX'] . '/' . $uin . '/' . $term, [
                 'headers' => [
                     'Content-type' => 'application/json',
                     'Accept' => 'application/json',
@@ -44,6 +44,21 @@ class AITS_Student_Enrollment
                     'format' => 'json'
                 ]
             ]);
+
+//            $client = new Client([
+//                'base_uri' => 'https://ossswebcs4.admin.uillinois.edu'
+//            ]);
+//
+//            $response = $client->request('GET', '/student-enrollment-test.json', [
+//                'headers' => [
+//                    'Content-type' => 'application/json',
+//                    'Accept' => 'application/json',
+//                ],
+//                'query' => [
+//                    'format' => 'json'
+//                ]
+//            ]);
+
 
             if ($response->getStatusCode('content-type') == 200) {
 
