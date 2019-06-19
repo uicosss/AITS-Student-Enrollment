@@ -8,9 +8,14 @@
 
 try {
 
-    // Load from within this Package
-    $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
-    $dotenv->load();
+
+    if(is_readable(__DIR__ . '/../.env')) {
+
+        // Load from within this Package
+        $dotenv = Dotenv\Dotenv::create(__DIR__ . '/../');
+        $dotenv->load();
+
+    }
 
     if(is_readable(__DIR__ . '/../../../../.env')) {
 
@@ -20,7 +25,11 @@ try {
 
     }
 
-    $dotenv->required(['AITS_STUDENT_ENROLLMENT_APP_DATA_LOG_RELATIVE_PATH', 'AITS_STUDENT_ENROLLMENT_DATA_LOG_FILE_PREFIX', 'AITS_STUDENT_ENROLLMENT_AITS_SENDER_APP_ID', 'AITS_STUDENT_ENROLLMENT_AITS_SERVICE_HOST'])->notEmpty();
+    if(!empty($dotenv)) {
+
+        $dotenv->required(['AITS_STUDENT_ENROLLMENT_APP_DATA_LOG_RELATIVE_PATH', 'AITS_STUDENT_ENROLLMENT_DATA_LOG_FILE_PREFIX', 'AITS_STUDENT_ENROLLMENT_AITS_SENDER_APP_ID', 'AITS_STUDENT_ENROLLMENT_AITS_SERVICE_HOST'])->notEmpty();
+
+    }
 
 } catch (\Exception $e) {
 
