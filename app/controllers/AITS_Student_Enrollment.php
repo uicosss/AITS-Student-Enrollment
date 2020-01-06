@@ -47,7 +47,7 @@ class AITS_Student_Enrollment
 
             if ($response->getStatusCode('content-type') == 200) {
 
-                $jsonString = $response->getBody()->getContents();
+                $jsonString = utf8_encode($response->getBody()->getContents());
 
                 $studentEnrollment->setFromJson($jsonString);
 
